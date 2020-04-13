@@ -1,0 +1,22 @@
+~~~~~~~tutorial-1~~~~~~~
+install virtual env = sudo -H pip install -U pipenv
+create env for a particular dir = pipenv shell
+install these 3 frameworks for that env only = pipenv install django djangorestframework django-rest-knox
+create dir leadmanager(inside leadmanager) = django-admin startproject leadmanager
+create dir leads(inside leadmanager) = python manage.py startapp leads
+models.py(in dir leads)
+create dir migration(inside leads) and storing table structure into it to send to main db = python manage.py makemigrations leads
+sending table structure into the db = python manage.py migrate
+serializers.py(in dir leads)
+api.py(in dir leads)
+urls.py(in dir leads)
+run application = python3 manage.py runserver
+now testing using POSTMAN software(api tester) - app installed
+using get request to check everythings working
+using post request to add data to db and then again checking by get request to see if data is posted in db or not
+
+~~~~~~~tutorial-2~~~~~~~
+leadmanger/frontend = stores all the files related to react
+leadmanger/frontend/src/components = stores all the files reltaed to redux
+leadmanger/frontend/template/frontend = stores and handles index.html
+leadmanger/frontend/static/frontend = stores the compiled js(main.js)

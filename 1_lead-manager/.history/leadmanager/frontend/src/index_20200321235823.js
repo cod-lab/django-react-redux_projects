@@ -1,0 +1,1 @@
+ App from './components/App';

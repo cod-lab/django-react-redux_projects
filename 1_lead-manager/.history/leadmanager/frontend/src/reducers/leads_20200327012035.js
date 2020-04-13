@@ -1,0 +1,1 @@
+import { GET_LEADS } from "../actions/types.js";        get the leads from backend and display them here in the lead list component

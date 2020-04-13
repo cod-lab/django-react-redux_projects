@@ -1,0 +1,167 @@
+~~~~~~~tutorial-1~~~~~~~ DJANGO(python framework for web apps) ~~~~~~~ for backend
+install virtual env = sudo -H pip install -U pipenv
+create env for a particular dir = pipenv shell
+install these 3 frameworks for that env only = pipenv install django djangorestframework django-rest-knox
+create dir leadmanager(inside leadmanager) = django-admin startproject leadmanager
+create dir leads(inside leadmanager) = python manage.py startapp leads
+models.py(in dir leads)
+create dir migration(inside leads) and storing table structure into it to send to main db = python manage.py makemigrations leads
+sending table structure into the db = python manage.py migrate
+serializers.py(in dir leads)
+api.py(in dir leads)
+urls.py(in dir leads)
+run application = python3 manage.py runserver
+now testing using POSTMAN software(api tester) - app installed
+using get request to check everythings working
+using post request to add data to db and then again checking by get request to see if data is posted in db or not
+
+
+~~~~~~~tutorial-2~~~~~~~ REACT JS/REACT.JS(js library for web apps) ~~~~~~~ for frontend
+pipenv shell
+cd leadmanager
+create dir frontend(inside leadmanager) = python manage.py startapp frontend
+create dir structure 'src/components' in dir 'frontend' in dir 'leadmanager' = mkdir -p ./frontend/src/components
+create dir structure '{static,templates}/frontend' in dir 'frontend' in dir 'leadmanager' = mkdir -p ./frontend/{static,templates}/frontend
+cd ..
+----------installed node from ubuntu sofware----------
+----------uninstalled node from ubuntu sofware bcs latest ver was not working----------
+----------installed node in other terminal(outside pipenv) from nodejs.org instructions----------
+initialize npm with all the dependencies(inside pipenv) = npm init -y
+	it creates file 1_lead-manager/package.json
+install webpack and webpack-cli as dev dependencies = npm i -D webpack webpack-cli
+install babel and other things as dev dependencies for transpiling js = npm i -D @babel/core babel-loader @babel/preset-env @babel/preset-react babel-plugin-transform-class-properties
+install react and react-dom for displaying application in browser = npm i react react-dom prop-types
+create .babelrc file in 1_lead-manager
+create webpack.config.js file in 1_lead-manager = load babel loader
+edit package.json file stored in 1_lead-manager = editing "scripts": {"test": "..."} to "scripts": {"dev": "...", "build": "..."}
+--> dev for testing(compiling) react application and build for deploying react application
+create file index.js in dir 'leadmanager/frontend/src'
+create file App.js in dir 'leadmanager/frontend/src/components'
+create file index.html in dir 'leadmanager/frontend/templates/frontend'
+add 'frontend' in file leadmanager/leadmanager/settings.py
+edit file leadmanager/frontend/views.py
+create file urls.py in dir 'leadmanager/frondend' for linking url to leadmanager/frontend/views.py
+editing file leadmanager/leadmanager/urls.py to add frontend path
+open two terminal tabs = left one for 'npm run dev' and right one for 'python3 manage.py runserver' so that both commands can run simultaneously
+npm run dev = it creates file leadmanager/frontend/static/frontend/main.js (5 errs encountered after one another, 1 syntax err, 3 spelling mistakes and 1 syntax err)
+	this 'main.js' file will be loaded in leadmanager/frontend/templates/fontend/index.html
+python3 manage.py runserver to check if application is working right
+	-encountered an err "ModuleNotFoundError: No module named 'django'", after resolving this err
+	-encountered spelling mistake err
+install extension "ES7 React/Redux/GraphQL/React-Native snippets by dsznajder.es7-react-js-snippets" to easily generate code for components
+create dir 'leadmanager/frontend/src/components/layout'
+create file 'leadmanager/frontend/src/components/layout/Header.js'
+edit file 'leadmanager/frontend/src/components/App.js'
+edit file '1_lead-manager/package.json'
+create dir 'leadmanager/frontend/src/components/leads'
+create file 'leadmanager/frontend/src/components/leads/Form.js'
+create file 'leadmanager/frontend/src/components/leads/Leads.js'
+create file 'leadmanager/frontend/src/components/leads/Dashboard.js' = it displays 'Form.js' & 'Leads.js' on web
+edit file 'leadmanager/frontend/src/components/App.js'
+
+
+~~~~~~~tutorial-3~~~~~~~ REDUX(js library for web application state) ~~~~~~~ for different users & their different states [for fronend]
+pipenv shell
+install chrome extension Redux DevTools
+npm i redux react-redux redux-thunk redux-devtools-extension
+npm run dev
+python3 manage.py runserver on another terminal tab
+create file 'leadmanager/frontend/src/store.js'
+create dir 'leadmanager/frontend/src/reducers'
+create file 'leadmanager/frontend/src/reducers/index.js'
+	-rootReducer(leadmanager/frontend/src/reducers/index.js) is the jst the meeting place for all other reducers
+	-leadReducer for leads
+	-authReducer for authentication
+	-errReducer for bringig errs down for whatever component
+edit file 'leadmanager/frontend/src/components/App.js' (we bring in store, provider from react-redux, react-redux is the package that integrates two together)
+	-encountered spelling mistake err in 'leadmanager/frontend/src/store.js'
+edit file 'leadmanager/frontend/src/reducers/index.js'
+create file 'leadmanager/frontend/src/reducers/leads.js'
+	-reducers basically a fn which takes in an action, evaluate an action, then we send down certain states depending on what that action does
+	-for leads we can hv get leads, add leads, del leads
+	-we define these leads with something called 'types' / -the way we define these leads with is called 'types'
+create dir 'leadmanager/frontend/src/actions'
+create file 'leadmanager/frontend/src/actions/types.js'
+	-types are basically just constants..so, its just a constant that holds a string
+	-its place to hold all the types
+edit file 'leadmanager/frontend/src/reducers/leads.js'
+install 'axios' = npm i axios
+create file 'leadmanager/frontend/src/actions/leads.js' and add get-lead functionality
+	-any action we want to fire off are going to go in here
+	-this is actually where we make all of our http requests
+edit file 'leadmanager/frontend/src/components/leads/Leads.js'
+	-we call getleads when component mounts and the leads come down from the reducer into the component as a prop
+	-we hv called an action, made the request to django backend, got the leads, put them in our state.
+	-to show those leads we use render()
+edit file 'leadmanager/frontend/src/actions/leads.js' for adding delete-lead functionality
+edit file 'leadmanager/frontend/src/actions/types.js' for adding delete-lead variable
+edit file 'leadmanager/frontend/src/reducers/leads.js' to add delete-lead case
+edit file 'leadmanager/frontend/src/components/leads/Leads.js' for adding delete functionality and calling delete-lead function from del-button
+edit file 'leadmanager/frontend/src/components/leads/Form.js' for adding add-lead form
+edit file 'leadmanager/frontend/src/actions/types.js' for adding add-lead variable
+edit file 'leadmanager/frontend/src/actions/leads.js' for adding add-lead functionality
+edit file 'leadmanager/frontend/src/reducers/leads.js' to add add-lead case
+edit file 'leadmanager/frontend/src/components/leads/Form.js' for adding add functionality and calling add-lead function from add-button
+
+
+~~~~~~~tutorial-4~~~~~~~ REACT-ALERT(react package for messages and alerts) ~~~~~~~ handles and displays apt. err msgs and other msgs after any event occured [for fronend]
+npm i react-alert react-alert-template-basic react-transition-group
+	-for installing package react-alert for err handling
+edit file 'leadmanager/frontend/src/components/App.js'
+create file 'leadmanager/frontend/src/components/layout/Alerts.js'
+	-msg 'component'
+	-for displaying err and other msgs
+	-it is a class base component
+edit file 'leadmanager/frontend/src/components/App.js' to import file 'leadmanager/frontend/src/components/layout/Alerts.js'
+	-err encountered if adding line '<Alerts />' 
+	-resolved just by replacing string '(withAlert(Alerts)' to '(withAlert()(Alerts)' in line 'export default connect(mapStateToProps)(withAlert()(Alerts));' in file 'leadmanager/frontend/src/components/layout/Alerts.js'
+create file 'leadmanager/frontend/src/reducers/errors.js' to add get-err case
+edit file 'leadmanager/frontend/src/reducers/index.js' to add err-reducer('leadmanager/frontend/src/reducers/errors.js')
+edit file 'leadmanager/frontend/src/actions/types.js' for adding get-err variable
+edit file 'leadmanager/frontend/src/actions/leads.js' to add err-displaying in add-lead function
+edit file 'leadmanager/frontend/src/components/layout/Alerts.js' for adding err-prop and connect to wrap component(class in this file)
+
+create file 'leadmanager/frontend/src/reducers/messages.js' to add create-msg case
+edit file 'leadmanager/frontend/src/reducers/index.js' to add msg-reducer('leadmanager/frontend/src/reducers/messages.js')
+create file 'leadmanager/frontend/src/actions/messages.js' for adding msg-fetching functionality
+edit file 'leadmanager/frontend/src/actions/types.js' for adding create-msg variable
+edit file 'leadmanager/frontend/src/actions/leads.js' to call action(leadmanager/frontend/src/actions/messages.js) for different functions
+edit file 'leadmanager/frontend/src/components/layout/Alerts.js' for adding msg-prop and connect to wrap component(class in this file)
+	-err encountered - leads were add/deleting to/from srvr but not displaying msg/alert about that
+	-caused due to importing different thing from 'leadmanager/frontend/src/actions/messages.js' in file 'leadmanager/frontend/src/actions/leads.js'
+	-resolved by changing that
+
+
+~~~~~~~tutorial-5~~~~~~~ Authentication ~~~~~~~ desplay, add, del lead thru authentication [for backend]
+edit file 'leadmanager/leads/models.py' to add new field-owner(foreign key) in table-Lead for new table-User
+python3 manage.py makemigrations  = it creates new python file for that table with new changes
+python3 manage.py migrate
+	-delete the old table(if any) if the operated table is same as stored table
+	-create new table into DB for that new file 
+edit file 'leadmanager/leads/api.py' to add authentication for leads 
+edit file 'leadmanager/frontend/src/actions/leads.js' to remove get-err functionality and call it from other file(leadmanager/frontend/src/actions/messages.js)
+edit file 'leadmanager/frontend/src/actions/messages.js' to add get-err functionality
+
+add it in 
+authentication errs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

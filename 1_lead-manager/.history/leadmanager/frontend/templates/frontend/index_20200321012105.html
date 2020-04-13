@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lead Manager</title>
+</head>
+<body>
+    <div id="app"></div>
+    {% load static %}                                                   <!-- load any file in leadmanager/frontend/static -->
+    <script src="{% static "frontend/main.js" %}"></script>             
+    <!-- looks for file leadmanager/frontend/static/frontend/main.js -->
+    <!-- there is no file leadmanager/frontend/static/frontend/main.js, it will be created on cmd 'npm run dev' or 'npm run build' -->
+</body>
+</html>
