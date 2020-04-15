@@ -14,4 +14,3 @@ class Lead(models.Model):
     # on_delete=models.CASCADE => if a user is deleted then all his leads will be deleted as well
     # null=True => it allows leads with no owner as well, so already stored leads in DB won't occur any err
     created_at = models.DateTimeField(auto_now_add=True)
- 

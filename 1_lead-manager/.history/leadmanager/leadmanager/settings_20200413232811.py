@@ -44,9 +44,8 @@ INSTALLED_APPS = [
 ]
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication')         
-    # setting default authetication classes for rest-framework as knox classes
-    # this will tell system that we're using knox authentication, token authentication
+    'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication')
+    # this will tell system that we're using token authentication, token authentication
 }
 
 MIDDLEWARE = [

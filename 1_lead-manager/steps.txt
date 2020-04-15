@@ -139,11 +139,15 @@ python3 manage.py migrate
 	-delete the old table(if any) if the operated table is same as stored table
 	-create new table into DB for that new file 
 edit file 'leadmanager/leads/api.py' to add authentication for leads 
+
 edit file 'leadmanager/frontend/src/actions/leads.js' to remove get-err functionality and call it from other file(leadmanager/frontend/src/actions/messages.js)
 edit file 'leadmanager/frontend/src/actions/messages.js' to add get-err functionality
 
-add it in 
-authentication errs
+edit file 'leadmanager/leadmanager/settings.py' 
+	-to add already installed package 'django-rest-knox' as 'knox' and,
+	-add REST_FRAMEWORK to set default authentication classes as knox classes for rest_framework
+stop server and run python3 manage.py migrate to add knox classes(tables) to db
+
 
 
 

@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'r2t=og7p!o-+5$sxsozvd5*&rba%rnaflf9o17sa#0$ig6s=yb'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -38,8 +38,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'leads',
-    'rest_framework'
+    'rest_framework',
+    'frontend',
+    'knox'
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication')         # this will tell system that we're using token authentication, token authentication
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

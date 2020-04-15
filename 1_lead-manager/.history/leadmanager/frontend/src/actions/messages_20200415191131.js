@@ -23,7 +23,7 @@ export const returnErrors = (msg, status) => {
     // return(dispatch)(send) 'type' 'GET_ERRORS' to 'reducer'(leadmanager/frontend/src/reducers/errors.js) to send object containing parameters 'msg' & 'status' and,
     // 'reducer' sends it to component(leadmanger/frontend/src/components/leads/Alerts.js) to display the msg on webpg
         type: GET_ERRORS,
-        payload: { msg, status }                    // object with parameters 'msg' & 'status'
+        payload: { msg, status }                    // object with params 'msg' & 'status'
         // when any event occurs on site by user and if any error is generatede by server then it'll be sent to payload
     };
 };
