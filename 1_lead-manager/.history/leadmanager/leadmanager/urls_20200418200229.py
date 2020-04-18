@@ -18,5 +18,7 @@ from django.urls import path, include
 
 urlpatterns = [
     #path('admin/', admin.site.urls),
-    path('',include('leads.urls')),
+    path('',include('frontend.urls')),              #frontend path is added first bcs it must be loaded first
+    path('',include('leads.urls')),                 # this will go to file 'leadmanager/leads/urls.py'
+    path('',include('accounts.urls')),              # this will go to file 'leadmanager/accounts/urls.py'
 ]

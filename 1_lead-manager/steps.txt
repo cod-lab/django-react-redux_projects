@@ -148,6 +148,57 @@ edit file 'leadmanager/leadmanager/settings.py'
 	-add REST_FRAMEWORK to set default authentication classes as knox classes for rest_framework
 stop server and run python3 manage.py migrate to add knox classes(tables) to db
 
+python3 manage.py startapp accounts to create new app(accounts) or dir(leadmanager/accounts) for user accounts and user registeration & login
+edit file 'leadmanager/leadmanager/settings.py' to add this app(accounts) to leadmanager
+create file 'leadmanager/accounts/serializers.py' to add user-serialzer and register-serialzer
+create file 'leadmanager/accounts/api.py' to add register-api to get new user data when he's registering
+create file 'leadmanager/accounts/urls.py' to add api file(leadmanager/accounts/api.py)
+
+edit file 'leadmanager/leadmanager/urls.py' to add app accounts(leadmanager/accounts)
+
+now testing app accounts using POSTMAN software(api tester)
+using post request to register user
+	-we send along header with key as 'content-type' with value as 'application/json'
+	-from body raw we send the data
+	-err occured -> TypeError: 'type' object is not iterable
+	-err resolved -> by replacing line
+		from 
+			"'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication')"
+		to
+			"'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',)"
+		in file 'leadmanager/leadmanager/settings.py'
+		bcz it is a tuple and when there is only one value in tuple, there must be a trailing comma(comma at the end)
+		if we dont do this then it looks it as a string
+	-err occured -> TypeError: Object of type 'AuthToken' is not JSON serializable
+	-err resolved -> by replacing line
+		from 
+			""token": AuthToken.objects.create(user)"
+		to
+			""token": AuthToken.objects.create(user)[1]"
+		in file 'leadmanager/accounts/api.py'
+		bcz it is a tuple and when there is only one value in tuple, there must be a trailing comma(comma at the end)
+		if we dont do this then it looks it as a string
+	-now after registering user it gives us back the user data(to use it for welcoming or something like that) and generate a token associated with that user and use it to identify that user
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+using post request to add data to db and then again checking by get request to see if data is posted in db or not
+
 
 
 

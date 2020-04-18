@@ -22,5 +22,5 @@ urlpatterns = [
     # now prgm will go to file 'leadmanager/accounts/urls.py'
     # frontend path is added first bcs it must be loaded first
     path('',include('leads.urls')),                 # now prgm will go to file 'leadmanager/leads/urls.py'
-    path('',include('accounts.urls'))               # now prgm will go to file 'leadmanager/accounts/urls.py'
+    path('',include('accounts.urls')),              # now prgm will go to file 'leadmanager/accounts/urls.py'
 ]
