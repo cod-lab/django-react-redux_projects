@@ -2,7 +2,7 @@ from rest_framework import serializers
 from django.contrib.auth.models import User                 # django already has a user model and all the authentication stuff, we just using knox for tokens
 from django.contrib.auth import authenticate
 
-# User Serialzer                                            # similar to lead serializer(leadmanager/leads/serializers.py)
+# User Serialzer                                            # similar to lead serializer(leadmanager/leads/serializers.py) 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User                                        # receives object 'user' from 'api' 'RegisterAPI' OR 'LoginAPI' stored in file 'leadmanager/accounts/api.py'
@@ -11,7 +11,7 @@ class UserSerializer(serializers.ModelSerializer):
 # Register Serialzer
 class RegisterSerializer(serializers.ModelSerializer):      # we used 'ModelSerializer' to create model
     class Meta:
-        model = User
+        model = User                                        
         # receives user details from 'api' 'RegisterAPI' stored in file 'leadmanager/accounts/api.py'
             # create model, entry of new user in table '' in db
         fields = ('id','username','email','password')       # these are the fields which are sent when this 'serializer' is called
@@ -23,7 +23,7 @@ class RegisterSerializer(serializers.ModelSerializer):      # we used 'ModelSeri
         user = User.objects.create_user(validated_data['username'], validated_data['email'], validated_data['password'])
         # create_user() = create an object of class 'User'(django inbuilt model class imported above) and,
         # add(pass) user's enetered details (dict) in this object
-        # now this object will be stored in variable 'user'
+        # now this object will be stored in variable 'user'    
             # its gonna check and validate the data input according to django user model structure ('cz we are using this model)
 
         return user
@@ -38,11 +38,11 @@ class LoginSerializer(serializers.Serializer):
 
     def validate(self, data):
     # (,'data') = getting user entered data at the time of login
-        user = authenticate(**data)
+        user = authenticate(**data)        
         # using 'authenticate' which we imported above from 'django.contrib.auth' to verify credentials. 
         # It takes user credentials and checks them against each 'authentication backend', and returns a user object(unm,encrypted pass) if the credentials are valid
         # django maintains a list of “authentication backends” that it checks for authentication one by one.
-
+        
         if user and user.is_active:                         # if user is found & active(is_active=true)
         # this is all included by django bydefault so we dont hv to write down any validation conditions
         # if user's 'is_active' 'field' is set to false then 'authentication backends' prohibits these users from authenticating

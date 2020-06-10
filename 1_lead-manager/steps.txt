@@ -150,9 +150,9 @@ stop server and run python3 manage.py migrate to add knox classes(tables) to db
 
 python3 manage.py startapp accounts to create new app(accounts) or dir(leadmanager/accounts) for user accounts and user registeration & login
 edit file 'leadmanager/leadmanager/settings.py' to add this app(accounts) to leadmanager
-create file 'leadmanager/accounts/serializers.py' to add user-serialzer and register-serialzer
+create file 'leadmanager/accounts/serializers.py' to add user-serializer and register-serializer
 create file 'leadmanager/accounts/api.py' to add register-api to get new user data when he's registering
-create file 'leadmanager/accounts/urls.py' to add api file(leadmanager/accounts/api.py)
+create file 'leadmanager/accounts/urls.py' to add api file(leadmanager/accounts/api.py) and register-api
 
 edit file 'leadmanager/leadmanager/urls.py' to add app accounts(leadmanager/accounts)
 
@@ -176,10 +176,12 @@ using post request to register user
 		to
 			""token": AuthToken.objects.create(user)[1]"
 		in file 'leadmanager/accounts/api.py'
-		bcz it is a tuple and when there is only one value in tuple, there must be a trailing comma(comma at the end)
-		if we dont do this then it looks it as a string
+		bcz the AuthToken.objects.create() returns a tuple (instance, token). So in order to get token use the index 1
 	-now after registering user it gives us back the user data(to use it for welcoming or something like that) and generate a token associated with that user and use it to identify that user
 
+edit file 'leadmanager/accounts/serializers.py' to add login-serializer
+edit file 'leadmanager/accounts/api.py' to add login-api
+edit file 'leadmanager/accounts/urls.py' to add login-api
 
 
 

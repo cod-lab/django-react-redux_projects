@@ -37,7 +37,6 @@ class RegisterAPI(generics.GenericAPIView):
             # just like when user login, when he registers he also gets a token, so to login    automatically     immediately
             # using 'AuthToken' which we imported above from 'knox'
             # AuthToken.objects.create(user) = passing object 'user' to 'AuthToken', now it'll create the token specific to that user, so when user makes any request from frontend, its gonna know who the user is from that token
-            # AuthToken.objects.create() returns a tuple (instance,token), so in order to get token use the index [1]
             # that token goes in header in authorization part
         })
 
@@ -75,7 +74,6 @@ class LoginAPI(generics.GenericAPIView):
             # that token is only valid for the period user has logged in
             # using 'AuthToken' which we imported above from 'knox'
             # AuthToken.objects.create(user) = passing object 'user' to 'AuthToken', now it'll create the token specific to that user, so when user makes any request from frontend, its gonna know who the user is from that token
-            # AuthToken.objects.create() returns a tuple (instance,token), so in order to get token use the index [1]
             # that token goes in header in authorization part
         })
         # return Response({"user": LoginSerializer(user).data})

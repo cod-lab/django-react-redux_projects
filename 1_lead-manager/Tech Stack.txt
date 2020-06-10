@@ -6,7 +6,7 @@ npm i axios
 ~~~~~~~tutorial-4~~~~~~~
 installing react alert--->
 	npm i react-alert react-alert-template-basic react-transition-group
-	react-transition-group is teh dependency of react-alert
+	react-transition-group is the dependency of react-alert
 
 
 
