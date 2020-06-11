@@ -43,7 +43,7 @@ class RegisterAPI(generics.GenericAPIView):
 
 # Login API
 class LoginAPI(generics.GenericAPIView):
-    serializer_class = LoginSerializer                                  # calling 'LoginSerializer' from 'serializer'(leadmanager/accounts/serializers.py)
+    RetrieveAPIView
 
     def post(self, request, *args, **kwargs):
     # when we make a request to login user on web, all the data(username,pass) we send from web will be here
@@ -81,11 +81,9 @@ class LoginAPI(generics.GenericAPIView):
         # return Response({"user": LoginSerializer(user).data})
 
 # GET User API
-class UserAPI(generics.RetrieveAPIView):                                # it gives user through token associated to him, it gives readonly info.
-    permission_classes = [permissions.IsAuthenticated]                  # it protects the route i.e. it must have a valid token to return a user & get things accessed
-    
-    serializer_class = UserSerializer                                   # calling 'UserSerializer' from 'serializer'(leadmanager/accounts/serializers.py)
+class UserAPI(generics.RetrieveAPIView):                                # it gets user through token associated to him, it gives readonly info.
+    permission_classes = [permissions.IsAuthenticated]
+    # it ptotects the route i.e. it must have a valid token to return a user and get things accessed
+    # 
 
-    def get_object(self):                                               # it returns an object which holds the associated user details
-            # bcz we want to get the user so we use this method and write 'get_object(self)'
-        return self.request.user                                        # it checks the token which we sent and sends back the associated user if token is valid
+    def post(self, request, *args, **kwargs):

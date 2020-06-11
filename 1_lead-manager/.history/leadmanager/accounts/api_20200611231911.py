@@ -86,6 +86,6 @@ class UserAPI(generics.RetrieveAPIView):                                # it giv
     
     serializer_class = UserSerializer                                   # calling 'UserSerializer' from 'serializer'(leadmanager/accounts/serializers.py)
 
-    def get_object(self):                                               # it returns an object which holds the associated user details
-            # bcz we want to get the user so we use this method and write 'get_object(self)'
+    def get_object(self):                                               # it returns an object which holds the associated user
+            # bcz we want to get the user so we use this method and write 'get_object(self)' 
         return self.request.user                                        # it checks the token which we sent and sends back the associated user if token is valid

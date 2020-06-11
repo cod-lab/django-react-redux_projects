@@ -183,6 +183,10 @@ edit file 'leadmanager/accounts/serializers.py' to add login-serializer
 edit file 'leadmanager/accounts/api.py' to add login-api
 edit file 'leadmanager/accounts/urls.py' to add login-api
 
+edit file 'leadmanager/accounts/api.py' to add user-api to get user through token associated to him
+edit file 'leadmanager/accounts/urls.py' to add user-api
+
+edit file 'leadmanager/accounts/urls.py' to add logout-view to invalidate(destroy) the passed(given) token so associated user has to login again to get a new token
 
 
 

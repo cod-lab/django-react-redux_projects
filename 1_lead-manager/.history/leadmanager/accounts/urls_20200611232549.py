@@ -9,5 +9,5 @@ urlpatterns = [
     path('api/auth/login',LoginAPI.as_view()),                          # .as_view = generic api view
     path('api/auth/user',UserAPI.as_view()),                            # .as_view = generic api view
     path('api/auth/logout', knox_views.LogoutView.as_view(), name='knox_logout')
-    # it invalidates(destroy) the passed(given) token so associated user has to login again to get a new token
+    # it invalidate(destroy) the passed(given) token so associated user has to login again to get a new token
 ]
