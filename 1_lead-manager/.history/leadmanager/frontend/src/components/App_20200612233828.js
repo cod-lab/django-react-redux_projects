@@ -33,7 +33,7 @@ class App extends Component {
                                 <Switch>                            {/* surround all the routes with the switch */}
                                     <Route exact path="/" component={Dashboard} />      {/* component 'Dashboard' to display main content(leads,form) of site on webpg */}
                                     <Route exact path="/register" component={Register} />      {/* component 'Register' to display Register pg */}
-                                    <Route exact path="/login" component={Login} />     {/* component 'Login' to display Login pg */}
+                                    <Route exact path="/login" component={Login} />      {/* component 'Login' to display Login pg */}
                                 </Switch>
                             </div>
                         </Fragment>

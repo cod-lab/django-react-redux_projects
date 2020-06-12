@@ -14,6 +14,7 @@ export class header extends Component {
                         <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
                             <li className="nav-item"><Link to="/register" className="nav-link">Register</Link></li>
                             <li className="nav-item"><Link to="/login" className="nav-link">Login</Link></li>
+                            
                             {/* 'Link' imported from react-route-dom */}
                             {/* 'Link' will add the given string to url by replacing the string succeeding default or home url and run the resultant url*/}
                         </ul>

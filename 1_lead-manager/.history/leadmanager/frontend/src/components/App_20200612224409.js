@@ -5,8 +5,8 @@ import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import Header from './layout/Header';
 import Dashboard from './leads/Dashboard';
 import Alerts from './layout/Alerts';
-import Register from './accounts/Register';
-import Login from './accounts/Login';
+import Register from './layout/Register';
+import V from './layout/Login';
 
 import { Provider } from 'react-redux';                             // 'provider' for UI
 import store from '../store';
@@ -27,13 +27,11 @@ class App extends Component {
                 <AlertProvider template={AlertTemplate} {...alertOptions}>        {/* 'provider' for err handling, adding 'alert template' to 'alert provider' */}
                     <Router>
                         <Fragment>
-                            <Header />                              {/* component to display header on webpg */}
-                            <Alerts />                              {/* component to display msgs on webpg */}
+                            <Header />                                  {/* component to display header on webpg */}
+                            <Alerts />                                  {/* component to display msgs on webpg */}
                             <div className="container">
-                                <Switch>                            {/* surround all the routes with the switch */}
+                                <Switch>                                {/* surround all the routes with the switch */}
                                     <Route exact path="/" component={Dashboard} />      {/* component 'Dashboard' to display main content(leads,form) of site on webpg */}
-                                    <Route exact path="/register" component={Register} />      {/* component 'Register' to display Register pg */}
-                                    <Route exact path="/login" component={Login} />     {/* component 'Login' to display Login pg */}
                                 </Switch>
                             </div>
                         </Fragment>

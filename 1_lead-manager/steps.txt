@@ -132,7 +132,7 @@ edit file 'leadmanager/frontend/src/components/layout/Alerts.js' for adding msg-
 	-resolved by changing that
 
 
-~~~~~~~tutorial-5~~~~~~~ Authentication ~~~~~~~ desplay, add, del lead thru authentication [for backend]
+~~~~~~~tutorial-5~~~~~~~ User Reg,Login,Authentication,Logout ~~~~~~~ display, add, del lead thru authentication [for backend]
 edit file 'leadmanager/leads/models.py' to add new field-owner(foreign key) in table-Lead for new table-User
 python3 manage.py makemigrations  = it creates new python file for that table with new changes
 python3 manage.py migrate
@@ -188,6 +188,20 @@ edit file 'leadmanager/accounts/urls.py' to add user-api
 
 edit file 'leadmanager/accounts/urls.py' to add logout-view to invalidate(destroy) the passed(given) token so associated user has to login again to get a new token
 
+***using post request to add data to db and then again checking by get request to see if data is posted in db or not***
+
+
+~~~~~~~tutorial-6~~~~~~~ Login,Register Components, Authentication [for fronend]
+npm i react-router-dom
+	-for installing react router-for handling different routes for group of users
+edit file 'leadmanager/frontend/src/components/App.js' to 
+	-import 'react-router-dom'
+	-use 'Route' to load & display 'component'
+create dir 'leadmanager/frontend/src/components/accounts' to store 'components' 'register' & 'login'
+create file 'leadmanager/frontend/src/components/accounts/Register.js' to add user-registration page
+create file 'leadmanager/frontend/src/components/accounts/Login.js' to add user-login page
+edit file 'leadmanager/frontend/src/components/App.js' to add 'components' 'register' & 'login' by creating their 'routes'
+edit file 'leadmanager/frontend/src/components/layout/Header.js' to add 'links'(hyperlinks) for 'components' 'register' & 'login'
 
 
 
@@ -201,9 +215,6 @@ edit file 'leadmanager/accounts/urls.py' to add logout-view to invalidate(destro
 
 
 
-
-
-using post request to add data to db and then again checking by get request to see if data is posted in db or not
 
 
 
