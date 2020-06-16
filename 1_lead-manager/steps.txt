@@ -69,7 +69,7 @@ python3 manage.py runserver on another terminal tab
 create file 'leadmanager/frontend/src/store.js'
 create dir 'leadmanager/frontend/src/reducers'
 create file 'leadmanager/frontend/src/reducers/index.js'
-	-rootReducer(leadmanager/frontend/src/reducers/index.js) is the jst the meeting place for all other reducers
+	-rootReducer(leadmanager/frontend/src/reducers/index.js) is jst the meeting place for all other reducers
 	-leadReducer for leads
 	-authReducer for authentication
 	-errReducer for bringig errs down for whatever component
@@ -191,7 +191,7 @@ edit file 'leadmanager/accounts/urls.py' to add logout-view to invalidate(destro
 ***using post request to add data to db and then again checking by get request to see if data is posted in db or not***
 
 
-~~~~~~~tutorial-6~~~~~~~ Login,Register Components, Authentication [for fronend]
+~~~~~~~tutorial-6~~~~~~~ Login,Register Components, User Authentication with token [for fronend]
 npm i react-router-dom
 	-for installing react router-for handling different routes for group of users
 edit file 'leadmanager/frontend/src/components/App.js' to 
@@ -203,17 +203,20 @@ create file 'leadmanager/frontend/src/components/accounts/Login.js' to add user-
 edit file 'leadmanager/frontend/src/components/App.js' to add 'components' 'register' & 'login' by creating their 'routes'
 edit file 'leadmanager/frontend/src/components/layout/Header.js' to add 'links'(hyperlinks) for 'components' 'register' & 'login'
 
+create file 'leadmanager/frontend/src/reducers/auth.js' to add auth state in redux with deafult case
+edit file 'leadmanager/frontend/src/reducers/index.js' to add auth-reducer(leadmanager/frontend/src/reducers/auth.js)
 
+create dir 'leadmanager/frontend/src/components/common' to create a private route so that dashboard wont be shown unless user is logged-in
+create file 'leadmanager/frontend/src/components/common/PrivateRoute.js'
+	-it'll be proxy(replacement) for regualar routes
+	-it's used to check if the user's logged in
+	-it is like protecting any regular route placed in 'leadmanager/frontend/src/components/App.js'
+edit file 'leadmanager/frontend/src/components/App.js' to add 'component' 'PrivateRoute' to protect the component 'Dashboard' to load if the user is not logged-in and redirect to login pg
 
-
-
-
-
-
-
-
-
-
+edit file 'leadmanager/frontend/src/actions/types.js' for adding multiple auth variables(user-loading, user-loaded, auth-err)
+edit file 'leadmanager/frontend/src/reducers/auth.js' to add multiple auth cases(user-loading, user-loaded, auth-err)
+create file 'leadmanager/frontend/src/actions/auth.js' to add multiple auth functions(user-loading, user-loaded, auth-err)
+edit file 'leadmanager/frontend/src/components/App.js' to add action 'leadmanager/frontend/src/actions/auth.js' and call 'leadUser' using 'leadmanager/frontend/src/store.js'
 
 
 
