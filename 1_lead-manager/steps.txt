@@ -219,8 +219,11 @@ create file 'leadmanager/frontend/src/actions/auth.js' to add multiple auth func
 edit file 'leadmanager/frontend/src/components/App.js' to add action 'leadmanager/frontend/src/actions/auth.js' and call 'leadUser' using 'leadmanager/frontend/src/store.js'
 
 
-
-
+~~~~~~~tutorial-7~~~~~~~ Login,Register functionality, getting leads associated to the user [for fronend]
+edit file 'leadmanager/frontend/src/actions/types.js' for adding login-success & login-fail variables
+edit file 'leadmanager/frontend/src/actions/auth.js' for adding login-success & login-fail functionality
+edit file 'leadmanager/frontend/src/reducers/auth.js' to add login-success & login-fail case
+edit file 'leadmanager/frontend/src/components/accounts/Login.js' to add call login function from web pg
 
 
 
