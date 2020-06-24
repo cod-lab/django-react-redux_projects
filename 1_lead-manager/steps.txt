@@ -225,6 +225,11 @@ edit file 'leadmanager/frontend/src/actions/auth.js' for adding login-success & 
 edit file 'leadmanager/frontend/src/reducers/auth.js' to add login-success & login-fail case
 edit file 'leadmanager/frontend/src/components/accounts/Login.js' to add call login function from web pg
 
+edit file 'leadmanager/frontend/src/components/layout/Header.js' to add 'logout-component' functionality
+edit file 'leadmanager/frontend/src/actions/auth.js' for adding logout functionality
+edit file 'leadmanager/frontend/src/actions/types.js' for adding logout-success variable
+edit file 'leadmanager/frontend/src/reducers/auth.js' to add logout-success case
+edit file 'leadmanager/frontend/src/components/layout/Header.js' to add authLink(logout) & guestLink(register & login)
 
 
 
