@@ -10,12 +10,13 @@ import { tokenConfig } from './auth';                       // importing 'cls' '
 // Get Leads
 export const getLeads = () => (dispatch, getState) => {
     // sending stored 'leads' in 'prop' 'getLeads' to server & reducer
-    // getState = bringing in 'getState' which allows us to fetch any user detail from the state
+    // getState = bringing in 'getState' which allows us to fetch something from the state, basically generated user token
 
     axios.get('/api/leads/', tokenConfig(getState))
     // send 'get' request to '/api/leads/' to get all leads from the server(django)
-    // tokenConfig(getState) = calling cls imported from 'action'(leadmanager/frontend/src/actions/auth.js) which is returning(giving) the variable 'config' containing the logged-in user's token to this cls
-
+    // tokenConfig(getState) = calling cls imported from 'action'(leadmanager/frontend/src/actions/auth.js)
+    // tokenConfig(getState) = it is a cls here returning(giving) the variable 'config' containing the logged-in user's token to this cls
+    
         .then(res => {
             dispatch({
             // dispatch(send) 'type' 'GET_LEADS' & 'payload' to 'reducer'(leadmanager/frontend/src/reducers/leads.js) to send all the leads and,
@@ -31,14 +32,12 @@ export const getLeads = () => (dispatch, getState) => {
 };
 
 // Del Lead
-export const deleteLead = (id) => (dispatch, getState) => {
-    // sending stored 'id' of deleted 'lead' in 'prop' 'deleteLead' to server & reducer
-    // getState = bringing in 'getState' which allows us to fetch any user detail from the state
-
+export const deleteLead = (id) => (dispatch, getState) => {     // sending stored 'id' of deleted 'lead' in 'prop' 'deleteLead' to server & reducer
     axios.delete(`/api/leads/${id}/`, tokenConfig(getState))    
     // send 'delete' request to '/api/leads/' to delete that lead from the server(django) and delete it here only
-    // tokenConfig(getState) = calling cls imported from 'action'(leadmanager/frontend/src/actions/auth.js) which is returning(giving) the variable 'config' containing the logged-in user's token to this cls
-
+    // tokenConfig(getState) = calling cls imported from 'action'(leadmanager/frontend/src/actions/auth.js)
+    // getState = bringing in 'getState' which allows us to fetch something from the state, basically generated user token
+    
         .then(res => {
             dispatch(createMessage({ deleteLead: 'Lead Deleted' }));
             // call variable 'createMessage' from 'action'(leadmanager/frontend/src/actions/messages.js) and,
@@ -54,14 +53,8 @@ export const deleteLead = (id) => (dispatch, getState) => {
 };
 
 // Add Lead
-export const addLead = (lead) => (dispatch, getState) => {
-    // sending stored 'lead' in 'prop' 'addLead' to server & reducer
-    // getState = bringing in 'getState' which allows us to fetch any user detail from the state
-
-    axios.post('/api/leads/', lead, tokenConfig(getState))
-    // send 'post' request to '/api/leads/' to add a 'lead' into the server(django) and add it here only
-    // tokenConfig(getState) = calling cls imported from 'action'(leadmanager/frontend/src/actions/auth.js) which is returning(giving) the variable 'config' containing the logged-in user's token to this cls
-
+export const addLead = (lead) => (dispatch, getState) => {      // sending stored 'lead' in 'prop' 'addLead' to server & reducer
+    axios.post('/api/leads/', lead, tokenConfig(getState))      // send 'post' request to '/api/leads/' to add a 'lead' into the server(django) and add it here only
         .then(res => {
             dispatch(createMessage({ addLead: 'Lead Added' }));         // msg object = {}
             // call variable 'createMessage' from 'action'(leadmanager/frontend/src/actions/messages.js) and,

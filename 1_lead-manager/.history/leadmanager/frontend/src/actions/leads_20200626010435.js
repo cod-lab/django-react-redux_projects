@@ -61,7 +61,7 @@ export const addLead = (lead) => (dispatch, getState) => {
     axios.post('/api/leads/', lead, tokenConfig(getState))
     // send 'post' request to '/api/leads/' to add a 'lead' into the server(django) and add it here only
     // tokenConfig(getState) = calling cls imported from 'action'(leadmanager/frontend/src/actions/auth.js) which is returning(giving) the variable 'config' containing the logged-in user's token to this cls
-
+    
         .then(res => {
             dispatch(createMessage({ addLead: 'Lead Added' }));         // msg object = {}
             // call variable 'createMessage' from 'action'(leadmanager/frontend/src/actions/messages.js) and,

@@ -241,7 +241,7 @@ edit file 'leadmanager/frontend/src/reducers/auth.js' to add register-success & 
 edit file 'leadmanager/frontend/src/components/accounts/Register.js' to add call register function from web pg
 edit file 'leadmanager/frontend/src/components/layout/Alerts.js' to add err 'user already exits' & 'passwords mismatch'
 
-
+edit file 'leadmanager/frontend/src/actions/leads.js' to display associated user's leads when he's logged in and perform any opt. on those leads
 
 
 
