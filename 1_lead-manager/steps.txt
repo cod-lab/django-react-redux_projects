@@ -231,12 +231,15 @@ edit file 'leadmanager/frontend/src/actions/types.js' for adding logout-success 
 edit file 'leadmanager/frontend/src/reducers/auth.js' to add logout-success case
 edit file 'leadmanager/frontend/src/components/layout/Header.js' to add authLink(logout) & guestLink(register & login)
 
+edit file 'leadmanager/frontend/src/components/layout/Alerts.js' to add 'incorrect credentials' err
+edit file 'leadmanager/frontend/src/components/layout/Header.js' to display logged-in user's name on web
+edit file 'leadmanager/frontend/src/actions/auth.js' to clean up (reduce) some code
 
-
-
-
-
-
+edit file 'leadmanager/frontend/src/actions/types.js' for adding register-success & register-fail variables
+edit file 'leadmanager/frontend/src/actions/auth.js' for adding register-success & register-fail functionality
+edit file 'leadmanager/frontend/src/reducers/auth.js' to add register-success & register-fail case
+edit file 'leadmanager/frontend/src/components/accounts/Register.js' to add call register function from web pg
+edit file 'leadmanager/frontend/src/components/layout/Alerts.js' to add err 'user already exits' & 'passwords mismatch'
 
 
 
