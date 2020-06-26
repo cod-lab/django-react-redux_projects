@@ -14,11 +14,15 @@ export class Header extends Component {
     };
 
     // onClick = e => {
-    //     //e.preventDefault();
-    //     //console.log('submit');
-    //     this.props.logout;
-    //     window.location.reload(false);
-    //     location.reload(true);
+        //e.preventDefault();
+        //console.log('submit');
+        // const { isAuthenticated, user } = this.props.auth;
+
+        // this.props.logout;
+        // // window.location.reload(false);
+        // //location.reload(true);
+        // if (!this.props.isAuthenticated)
+        //     return <Redirect to='/login' />;
     // };
 
     //fn4() {return <Redirect to='/login' />;}
