@@ -1,4 +1,0 @@
-{
-    "presets": ["@babel/preset-evn", "@babel/preset-react"],
-    "plugins": ["transfrom-class-properties"]
-}
