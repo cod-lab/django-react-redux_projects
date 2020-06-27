@@ -83,15 +83,15 @@ export class Register extends Component {
 }
 
 const mapStateToProps = state => ({ isAuthenticated: state.auth.isAuthenticated });
-    // this will get state from 'leadmanger/frontend/src/reducers/auth.js'
-    // this will map state to props of this component
-    // 'isAuthenticated:' = 'prop' = created above, will get the state(value) from 'reducer'(leadmanager/frontend/src/reducers/auth.js)
-    // 'state.auth' = 'state' = it is the auth reducer imported from 'leadmanger/frontend/src/reducers/index.js'
-    // '.isAuthenticated' is the part of the state we want
+// this will get state from 'leadmanger/frontend/src/reducers/auth.js'
+// this will map state to props of this component
+// 'isAuthenticated:' = 'prop' = created above, will get the state(value) from 'reducer'(leadmanager/frontend/src/reducers/auth.js)
+// 'state.auth' = 'state' = it is the auth reducer imported from 'leadmanger/frontend/src/reducers/index.js'
+// '.isAuthenticated' is the part of the state we want
 
 export default connect(mapStateToProps, { register, createMessage })(Register);
-    // sending 'prop' 'register' to 'action'(leadmanager/frontend/src/actions/auth.js) to get token from server(django) and log in
-    // sending 'prop' 'createMessage' ' to 'action'(leadmanager/frontend/src/actions/messages.js) to display user-defined msg on web
-    // cls 'Register' is 'component' here wrapped with redux store's state(leadmanager/frontend/src/reducers/auth.js) & 'actions' 'register' & 'createMessage' thru 'connect' using '()'
-    // 'mapStateToProps' is giving the 'states' from 'leadmanger/frontend/src/reducers/index.js'
-    // 'register' = 'prop' = created above
+// sending 'prop' 'register' to 'action'(leadmanager/frontend/src/actions/auth.js) to get token from server(django) and log in
+// sending 'prop' 'createMessage' ' to 'action'(leadmanager/frontend/src/actions/messages.js) to display user-defined msg on web
+// cls 'Register' is 'component' here wrapped with redux store's state(leadmanager/frontend/src/reducers/auth.js) & 'actions' 'register' & 'createMessage' thru 'connect' using '()'
+// 'mapStateToProps' is giving the 'states' from 'leadmanger/frontend/src/reducers/index.js'
+// 'register' = 'prop' = created above

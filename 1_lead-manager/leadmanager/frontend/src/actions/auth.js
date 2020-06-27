@@ -108,11 +108,9 @@ export const logout = () => (dispatch, getState) => {
     // send 'get' request to 'api/auth/logout' along with object 'config' (which holds the given token) to get user from the server(django)
     // tokenConfig(getState) = it is a cls here returning(giving) the variable 'config' containing the logged-in user's token to this cls
         .then(res => {
-            dispatch({
+            dispatch({ type: LOGOUT_SUCCESS });
             // dispatch(send) 'type' 'LOGOUT_SUCCESS' to 'reducer'(leadmanager/frontend/src/reducers/auth.js) to get user logged out
             // 'reducer' sends it to 'component'(leadmanger/frontend/src/components/layout/Header.js)
-                type: LOGOUT_SUCCESS
-            });
         }).catch(err => {                                               // if any err arises when logging out, it will dispatch the err to web
             dispatch(returnErrors(err.response.data, err.response.status));
             // call variable 'returnErrors' from 'action'(leadmanager/frontend/src/actions/messages.js) and,
